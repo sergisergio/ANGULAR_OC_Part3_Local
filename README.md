@@ -1,27 +1,71 @@
-# Angular1
+# Requirements
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+[NODE.JS](https://nodejs.org/en/download/)  
 
-## Development server
+[NPM](https://docs.npmjs.com/)
+``` bash
+npm install -g npm@latest
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[ANGULAR/CLI](https://cli.angular.io/)
+``` bash
+npm install -g @angular/cli
+```
 
-## Code scaffolding
+[DOC ANGULAR](https://angular.io/)  
+[DOC TYPESCRIPT](https://www.typescriptlang.org/docs/home.html)  
+[DOC IONIC](https://ionicframework.com/docs/)  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Create a project
+``` bash
+ng new mon-premier-projet
+```
+``` bash
+cd mon-premier-projet
+ng serve --open
+```
+Go to http://localhost:4200
+Or try another port
+``` bash
+ng serve -o --port 4300
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Create a component
+``` bash
+ng generate component mycomponent
+```
 
-## Running unit tests
+## Dynamic Data
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+***String Interpolation***  (from TS to HTML)  
+Declare a string variable in ts file, then pass it to html file with {{ }}.
 
-## Running end-to-end tests
+***Property Binding***  (from TS to HTML)  
+Add a property in ts file, then pass it to a DOM element in html file (ex: [disabled]="!isAuth")
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+***Event Binding*** (from HTML to TS)  
+Add (click) in a button (ex: (click)="onAllumer") and declare this function in ts file.  
+[MDN Web Docs](https://developer.mozilla.org/fr/docs/Web/Guide/DOM/Events/Creating_and_triggering_events)  
+[W3Schools](https://www.w3schools.com/js/js_events.asp)  
 
-## Further help
+***Two-way binding*** (Propert Binding and Event Binding in the same time)  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Directives
+
+- *ngIf="condition"  
+- *ngFor="let obj of myArray"  
+- *ngStyle (give styles to an object from Dom dynamically)  
+- *ngClass (add a CSS class dynamically)  
+
+## Pipes  
+
+Exemples:
+- {{ lastUpdate | date }}  
+- {{ lastUpdate | date: 'short' }}  
+- {{ lastUpdate | date: 'yMMMMEEEEd' }}  
+- {{ lastUpdate | date: 'yMMMMEEEEd' | uppercase }}  
+- {{ lastUpdate | async | date: 'yMMMMEEEEd' | uppercase }}  
+
+
+
