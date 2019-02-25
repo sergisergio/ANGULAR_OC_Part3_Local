@@ -1,34 +1,35 @@
-import {Subject} from 'rxjs';
+import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AppareilService {
 
-  appareilSubject = new Subject<any[]>();
+  appareilsSubject = new Subject<any[]>();
 
-  private appareils = [
+  private appareils = [];
+
     /*{
-      id: 1,
-      name: 'Machine à laver',
-      status: 'éteint'
+    id: 1,
+    name: 'Machine à laver',
+    status: 'éteint'
     },
     {
-      id: 2,
-      name: 'Frigo',
-      status: 'allumé'
+    id: 2,
+    name: 'Frigo',
+    status: 'allumé'
     },
     {
-      id: 3,
-      name: 'Ordinateur',
-      status: 'éteint'
+    id: 3,
+    name: 'Ordinateur',
+    status: 'éteint'
     }*/
-  ];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   emitAppareilSubject() {
-    this.appareilSubject.next(this.appareils.slice());
+    //console.info(this.appareils);
+    this.appareilsSubject.next(this.appareils.slice());
   }
 
   getAppareilById(id: number) {
@@ -89,7 +90,7 @@ export class AppareilService {
 
   getAppareilsFromServer() {
     this.httpClient
-      .get<any[]>('https://httpclient-demo.firebaseio.com/appareils.json')
+      .get<any[]>('https://angular1-2e6f4.firebaseio.com/appareils.json')
       .subscribe(
         (response) => {
           this.appareils = response;
